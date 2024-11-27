@@ -9,11 +9,16 @@ class HomeAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      title:Text('Catalogue',style: GoogleFonts.lato(color: AppPallate.primaryText),) ,
+      title:Text('Catalogue',style: Theme.of(context).textTheme.headlineLarge,) ,
       centerTitle: true,
       actions: [
-        Badge(
-          child: Icon(Icons.shopping_cart_outlined),
+        Container(
+          margin: EdgeInsets.all(8),
+          child: Badge(
+
+            largeSize: 10,
+            child: Icon(Icons.shopping_cart_outlined),
+          ),
         )
       ],
     );
