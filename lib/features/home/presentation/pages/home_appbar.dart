@@ -8,6 +8,7 @@ class HomeAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       title:Text('Catalogue',style: Theme.of(context).textTheme.headlineLarge,) ,
       centerTitle: true,
@@ -15,7 +16,7 @@ class HomeAppbar extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(8),
           child: Badge(
-
+            
             largeSize: 10,
             child: Icon(Icons.shopping_cart_outlined),
           ),

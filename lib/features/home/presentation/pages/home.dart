@@ -9,8 +9,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        extendBodyBehindAppBar: false,
-        appBar: PreferredSize(preferredSize: Size.fromHeight(60), child: HomeAppbar()),
+        
+        appBar: PreferredSize(preferredSize: Size.fromHeight(100), child: HomeAppbar()),
         body: HomeList(),
       ),
     );
