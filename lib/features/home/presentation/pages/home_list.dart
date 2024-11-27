@@ -8,13 +8,13 @@ class HomeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GridView.builder(
-         
         itemCount: 6,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 2/3),
-          itemBuilder: (context, index) {
-            return GridWidgeet();
-          },),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, childAspectRatio: 2 / 3),
+        itemBuilder: (context, index) {
+          return GridWidgeet();
+        },
+      ),
     );
   }
 }

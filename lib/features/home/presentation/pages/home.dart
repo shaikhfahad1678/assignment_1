@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         
-        appBar: PreferredSize(preferredSize: Size.fromHeight(100), child: HomeAppbar()),
+        appBar: PreferredSize(preferredSize: Size.fromHeight(75), child: HomeAppbar()),
         body: HomeList(),
       ),
     );

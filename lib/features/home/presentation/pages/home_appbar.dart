@@ -10,15 +10,23 @@ class HomeAppbar extends StatelessWidget {
     return AppBar(
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
-      title:Text('Catalogue',style: Theme.of(context).textTheme.headlineLarge,) ,
+      title: Container(
+          margin: EdgeInsets.only(top: 22),
+          child: Text(
+            'Catalogue',
+            style: Theme.of(context).textTheme.headlineLarge,
+          )),
       centerTitle: true,
       actions: [
         Container(
-          margin: EdgeInsets.all(8),
+          margin: EdgeInsets.only(top: 22, right: 8),
           child: Badge(
-            
-            largeSize: 10,
-            child: Icon(Icons.shopping_cart_outlined),
+            label: Text('00'),
+            largeSize: 22,
+            child: Icon(
+              Icons.shopping_cart_outlined,
+              size: 35,
+            ),
           ),
         )
       ],

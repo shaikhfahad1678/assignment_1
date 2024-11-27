@@ -1,4 +1,5 @@
 import 'package:assignment_1/core/theme.dart';
+import 'package:assignment_1/features/cart/presetation/pages/cart.dart';
 import 'package:assignment_1/features/home/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -15,5 +16,5 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme:AppTheme.lightThemeMode ,
-      home: Home(),
+      home: Cart(),
     );}}
