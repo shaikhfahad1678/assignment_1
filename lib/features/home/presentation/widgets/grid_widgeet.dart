@@ -17,6 +17,8 @@ class GridWidgeet extends StatelessWidget {
               Container(
                 width: 264,
                 height: 300,
+               decoration: BoxDecoration(border: Border.all(width: 0.4,color: Colors.black26)),
+
                 child: Image.network(
                   'https://cdn.thewirecutter.com/wp-content/media/2024/05/smartphone-2048px-1013.jpg',
                   fit: BoxFit.cover,
