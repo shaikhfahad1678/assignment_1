@@ -10,13 +10,13 @@ class CartBottomsheet extends StatelessWidget {
     return Container(
       height: 100,
       decoration: BoxDecoration(
-          color: Colors.transparent,
+          color: AppPallate.lightSurface,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(13), topRight: Radius.circular(13))),
       child: Container(
         height: 50,
         decoration: BoxDecoration(
-            color: Colors.amberAccent, borderRadius: BorderRadius.circular(20)),
+            color: AppPallate.lightSurface, borderRadius: BorderRadius.circular(20)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

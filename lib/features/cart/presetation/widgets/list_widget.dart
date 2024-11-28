@@ -58,11 +58,11 @@ class ListWidget extends StatelessWidget {
                   )),
               Container(
               
-                margin: EdgeInsets.only(left: 200, top: 74),
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.25, top: 74),
                 alignment: Alignment.bottomRight,
                 child: Container(
                     width: 100,
-                height: 35,
+                    height: 35,
                   decoration: BoxDecoration(color: AppPallate.cartButton,
                   borderRadius: BorderRadius.circular(8)
                   ),

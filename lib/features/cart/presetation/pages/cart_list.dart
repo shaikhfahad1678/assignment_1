@@ -7,7 +7,8 @@ class CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.only(bottom: 20),
+
+      padding: EdgeInsets.only(bottom: 200),
       itemCount: 4,
       itemBuilder: (context, index) {
       return ListWidget();

@@ -12,7 +12,7 @@ class HomeList extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2 / 3),
         itemBuilder: (context, index) {
-          return GridWidgeet();
+          return GridWidget();
         },
       ),
     );
