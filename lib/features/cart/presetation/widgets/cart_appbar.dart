@@ -9,7 +9,7 @@ class CartAppbar extends StatelessWidget {
       scrolledUnderElevation: 0,
       
       title: Container(
-          margin: EdgeInsets.only(top: 22),
+          margin: const EdgeInsets.only(top: 22),
           child: Text(
             'Cart',
             style: Theme.of(context).textTheme.headlineLarge,

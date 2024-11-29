@@ -1,10 +1,15 @@
-import 'package:assignment_1/core/theme.dart';
+import 'package:assignment_1/core/configs/theme.dart';
 import 'package:assignment_1/features/cart/presetation/pages/cart.dart';
+import 'package:assignment_1/features/home/presentation/bloc/home_bloc.dart';
 import 'package:assignment_1/features/home/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => HomeBloc(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,5 +21,5 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme:AppTheme.lightThemeMode ,
-      home: Cart(),
+      home: const Home(),
     );}}

@@ -1,17 +1,31 @@
-import 'package:assignment_1/core/app_pallate.dart';
+import 'package:assignment_1/core/configs/app_pallate.dart';
 import 'package:flutter/material.dart';
 
-class GridWidget extends StatelessWidget {
-  const GridWidget({super.key});
+class HomeList extends StatelessWidget {
+  const HomeList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions
-    final screenWidth = MediaQuery.of(context).size.width;
+    return SafeArea(
+      child: GridView.builder(
+        itemCount: 6,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, childAspectRatio: 2 / 3),
+        itemBuilder: (context, index) {
+          return GridWidget(context);
+        },
+      ),
+    );
+  }
+}
 
-    return Container(
+
+ Widget GridWidget(BuildContext context) {
+      final screenWidth = MediaQuery.of(context).size.width;
+
+     return Container(
       color: AppPallate.lightSurface,
-      margin: EdgeInsets.all(6),
+      margin: const EdgeInsets.all(6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,7 +44,7 @@ class GridWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
                 width: screenWidth * 0.2, // Adjust button width
                 height: screenWidth * 0.08, // Adjust button height
                 alignment: Alignment.center,
@@ -57,7 +71,7 @@ class GridWidget extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(left: 8),
-            child: Text('Apple'),
+            child: const Text('Apple'),
           ),
           Row(
             children: [
@@ -87,5 +101,9 @@ class GridWidget extends StatelessWidget {
         ],
       ),
     );
-  }
-}
+
+
+
+
+
+ }

@@ -1,19 +1,30 @@
-import 'package:assignment_1/core/app_pallate.dart';
+import 'package:assignment_1/core/configs/app_pallate.dart';
 import 'package:flutter/material.dart';
 
-class ListWidget extends StatelessWidget {
-  const ListWidget({super.key});
+class CartList extends StatelessWidget {
+  const CartList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 8),
+    return ListView.builder(
+
+      padding: const EdgeInsets.only(bottom: 200),
+      itemCount: 4,
+      itemBuilder: (context, index) {
+      return ListWidget(context);
+    },);
+  }
+}
+
+ Widget ListWidget(BuildContext context) {
+   return Container(
+      margin: const EdgeInsets.only(bottom: 8),
       color: AppPallate.lightSurface,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             width: 230,
             height: 200,
             decoration: BoxDecoration(
@@ -27,7 +38,7 @@ class ListWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     left: 8,
                     top: 8,
                   ),
@@ -35,23 +46,23 @@ class ListWidget extends StatelessWidget {
                     'iPhone 9',
                     style: Theme.of(context).textTheme.labelMedium,
                   )),
-              Container(margin: EdgeInsets.only(left: 8), child: Text('Apple')),
+              Container(margin: const EdgeInsets.only(left: 8), child: const Text('Apple')),
               Row(
                 children: [
                   Container(
-                      margin: EdgeInsets.only(left: 8),
+                      margin: const EdgeInsets.only(left: 8),
                       child: Text(
                         '₹549',
                         style: Theme.of(context).textTheme.labelSmall,
                       )),
                   Container(
-                      margin: EdgeInsets.only(left: 8),
+                      margin: const EdgeInsets.only(left: 8),
                       child: Text(' ₹477.85',
                           style: Theme.of(context).textTheme.headlineMedium)),
                 ],
               ),
               Container(
-                  margin: EdgeInsets.only(left: 8),
+                  margin: const EdgeInsets.only(left: 8),
                   child: Text(
                     '12.96% OFF',
                     style: Theme.of(context).textTheme.titleMedium,
@@ -66,7 +77,7 @@ class ListWidget extends StatelessWidget {
                   decoration: BoxDecoration(color: AppPallate.cartButton,
                   borderRadius: BorderRadius.circular(8)
                   ),
-                  child: Row(
+                  child: const Row(
 
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -83,4 +94,4 @@ class ListWidget extends StatelessWidget {
       ),
     );
   }
-}
+
