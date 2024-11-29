@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_bloc:
   bloc: ^8.1.4
   google_fonts: ^6.2.1
 
