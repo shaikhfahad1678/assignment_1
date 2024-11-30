@@ -1,4 +1,3 @@
-import 'package:assignment_1/core/configs/app_pallate.dart';
 import 'package:assignment_1/features/cart/presetation/widgets/cart_appbar.dart';
 import 'package:assignment_1/features/cart/presetation/widgets/cart_bottomsheet.dart';
 import 'package:assignment_1/features/cart/presetation/widgets/cart_list.dart';

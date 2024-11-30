@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class RemoteService {
   //uses a future because of delay in loading json
-  Future<List<Product>?> getPost() async {
+  Future<List<Post>?> getPost() async {
     //this is client object
     var client = http.Client();
 
