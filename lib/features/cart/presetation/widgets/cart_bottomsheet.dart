@@ -28,7 +28,7 @@ class CartBottomsheet extends StatelessWidget {
               children: [
                 Container(
                     margin: const EdgeInsets.only(left: 10),
-                    child: Text('₹3805.3',
+                    child: Text(,
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold, fontSize: 20))),
                 Container(

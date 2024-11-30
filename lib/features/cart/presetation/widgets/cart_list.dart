@@ -1,5 +1,7 @@
 import 'package:assignment_1/core/configs/app_pallate.dart';
+import 'package:assignment_1/features/cart/data/cart_data.dart';
 import 'package:flutter/material.dart';
+
 
 class CartList extends StatelessWidget {
   const CartList({super.key});
@@ -9,15 +11,33 @@ class CartList extends StatelessWidget {
     return ListView.builder(
 
       padding: const EdgeInsets.only(bottom: 200),
-      itemCount: 4,
+      itemCount: cartData.length,
       itemBuilder: (context, index) {
-      return ListWidget(context);
+      return ListWidget(index: index,);
     },);
   }
 }
 
- Widget ListWidget(BuildContext context) {
-   return Container(
+
+
+class ListWidget extends StatelessWidget {
+  final index;
+  const ListWidget({super.key,required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    ////////////////////////////////////////////////////////////////////////////////////
+     discountedPrice(double mrp,double discountPercent){
+     double result=(discountPercent / 100) * mrp;
+     double finalResult =mrp-result;
+     return double.parse(finalResult.toStringAsFixed(2));
+    }
+   /////////////////////////////////////////////////////////////////////////////////////
+   double calculateTotal() {
+  return cartData.fold(0, (sum, item) => sum + ( discountedPrice(cartData[index].price,cartData[index].discountPercentage)));  //* item.quantity
+}
+///////////////////////////////////////////////////////////
+    return Container(
       margin: const EdgeInsets.only(bottom: 8),
       color: AppPallate.lightSurface,
       child: Row(
@@ -30,7 +50,7 @@ class CartList extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(width: 0.4, color: Colors.black26)),
             child: Image.network(
-              'https://cdn.thewirecutter.com/wp-content/media/2024/05/smartphone-2048px-1013.jpg',
+              cartData[index].thumbnail.toString(),
               fit: BoxFit.cover,
             ),
           ),
@@ -43,28 +63,28 @@ class CartList extends StatelessWidget {
                     top: 8,
                   ),
                   child: Text(
-                    'iPhone 9',
+                    cartData[index].title.toString(),
                     style: Theme.of(context).textTheme.labelMedium,
                   )),
-              Container(margin: const EdgeInsets.only(left: 8), child: const Text('Apple')),
+              Container(margin: const EdgeInsets.only(left: 8), child:  Text(cartData[index].category.toString())),
               Row(
                 children: [
                   Container(
                       margin: const EdgeInsets.only(left: 8),
                       child: Text(
-                        '₹549',
+                        cartData[index].price.toString(),
                         style: Theme.of(context).textTheme.labelSmall,
                       )),
                   Container(
                       margin: const EdgeInsets.only(left: 8),
-                      child: Text(' ₹477.85',
+                      child: Text(discountedPrice(cartData[index].price,cartData[index].discountPercentage).toString(),/////
                           style: Theme.of(context).textTheme.headlineMedium)),
                 ],
               ),
               Container(
                   margin: const EdgeInsets.only(left: 8),
                   child: Text(
-                    '12.96% OFF',
+                     cartData[index].discountPercentage.toString() ,
                     style: Theme.of(context).textTheme.titleMedium,
                   )),
               Container(
@@ -94,4 +114,4 @@ class CartList extends StatelessWidget {
       ),
     );
   }
-
+}

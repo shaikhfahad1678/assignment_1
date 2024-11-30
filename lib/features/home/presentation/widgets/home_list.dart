@@ -1,6 +1,7 @@
 import 'package:assignment_1/core/configs/app_pallate.dart';
 import 'package:assignment_1/data/product/models/product.dart';
 import 'package:assignment_1/data/product/repository/remote_service.dart';
+import 'package:assignment_1/features/cart/data/cart_data.dart';
 import 'package:flutter/material.dart';
 
 
@@ -71,6 +72,13 @@ class GridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    discountedPrice(double mrp,double discountPercent){
+     double result=(discountPercent / 100) * mrp;
+     double finalResult =mrp-result;
+     return double.parse(finalResult.toStringAsFixed(2));
+    }
+
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
@@ -93,20 +101,25 @@ class GridWidget extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.all(8),
-                width: screenWidth * 0.2,
-                height: screenWidth * 0.08,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.white,
-                ),
-                child: Text(
-                  'Add',
-                  style: TextStyle(
-                    color: AppPallate.darkPink,
-                    fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () {
+                  cartData.add(post[index]);
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(8),
+                  width: screenWidth * 0.2,
+                  height: screenWidth * 0.08,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.white,
+                  ),
+                  child: Text(
+                    'Add',
+                    style: TextStyle(
+                      color: AppPallate.darkPink,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -121,21 +134,26 @@ class GridWidget extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(left: 8),
-            child: const Text('Apple'),
+            child:  Text(
+                  post[index].category.toString(),////////////////////////////
+
+            ),
           ),
           Row(
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 8),
-                child: Text(
-                  '₹549',
+                child: Text(post[index].price.toString()
+                                ,////////////////////////////
+
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(left: 8),
                 child: Text(
-                  ' ₹477.85',
+                              discountedPrice(post[index].price,post[index].discountPercentage).toString()  ,////////////////////////////
+
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
@@ -144,7 +162,7 @@ class GridWidget extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 8),
             child: Text(
-              '12.96% OFF',
+             post[index].discountPercentage.toString() ,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
