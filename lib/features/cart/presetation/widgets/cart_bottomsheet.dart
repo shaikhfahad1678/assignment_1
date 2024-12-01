@@ -11,7 +11,6 @@ class CartBottomsheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CounterCubit, int>(
       builder: (context, state) {
-        
         return Container(
           height: 100,
           decoration: BoxDecoration(
@@ -35,7 +34,9 @@ class CartBottomsheet extends StatelessWidget {
                     Container(
                         margin: const EdgeInsets.only(left: 10),
                         child: Text(
-                            CounterCubit().calculateTotal(CounterCubit().index1).toString(), ///////////////////////////////////////////////////////////////////
+                            CounterCubit()
+                                .calculateTotal(CounterCubit().index1)
+                                .toString(), ///////////////////////////////////////////////////////////////////
                             style: GoogleFonts.lato(
                                 fontWeight: FontWeight.bold, fontSize: 20))),
                     Container(
@@ -61,7 +62,10 @@ class CartBottomsheet extends StatelessWidget {
                               width: 20,
                               decoration: const BoxDecoration(
                                   color: Colors.white, shape: BoxShape.circle),
-                              child: Text(CounterCubit().index1.toString(),//////////////
+                              child: Text(
+                                  CounterCubit()
+                                      .index1
+                                      .toString(), //////////////
                                   style: GoogleFonts.lato(
                                       color: AppPallate.darkPink,
                                       fontWeight: FontWeight.w900)))

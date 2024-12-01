@@ -4,7 +4,6 @@ import 'package:assignment_1/data/product/repository/remote_service.dart';
 import 'package:assignment_1/features/cart/data/cart_data.dart';
 import 'package:flutter/material.dart';
 
-
 class HomeList extends StatefulWidget {
   const HomeList({super.key});
 
@@ -13,9 +12,8 @@ class HomeList extends StatefulWidget {
 }
 
 class _HomeListState extends State<HomeList> {
-  
 //////////////////////////////////////////////
-List<Post> post=[];
+  List<Post> post = [];
 
   var isLoaded = false;
 ////////////////////////////////////////////////////////////
@@ -58,7 +56,10 @@ List<Post> post=[];
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2 / 3),
         itemBuilder: (context, index) {
-          return GridWidget(index: index,post: post,);
+          return GridWidget(
+            index: index,
+            post: post,
+          );
         },
       ),
     );
@@ -72,11 +73,10 @@ class GridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    discountedPrice(double mrp,double discountPercent){
-     double result=(discountPercent / 100) * mrp;
-     double finalResult =mrp-result;
-     return double.parse(finalResult.toStringAsFixed(2));
+    discountedPrice(double mrp, double discountPercent) {
+      double result = (discountPercent / 100) * mrp;
+      double finalResult = mrp - result;
+      return double.parse(finalResult.toStringAsFixed(2));
     }
 
     final screenWidth = MediaQuery.of(context).size.width;
@@ -97,28 +97,34 @@ class GridWidget extends StatelessWidget {
                   border: Border.all(width: 0.4, color: Colors.black26),
                 ),
                 child: Image.network(
-                  post[index].thumbnail.toString(),///////////////////////
+                  post[index].thumbnail.toString(), ///////////////////////
                   fit: BoxFit.cover,
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  cartData.add(post[index]);
-                },
-                child: Container(
-                  margin: const EdgeInsets.all(8),
-                  width: screenWidth * 0.2,
-                  height: screenWidth * 0.08,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  child: Text(
-                    'Add',
-                    style: TextStyle(
-                      color: AppPallate.darkPink,
-                      fontWeight: FontWeight.bold,
+              Material(
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  splashColor: Colors.pinkAccent,
+                  onTap: () {
+                    cartData.add(post[index]);
+                  },
+                  child: Ink(
+                    width: screenWidth * 0.2,
+                    height: screenWidth * 0.08,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Add',
+                        style: TextStyle(
+                          color: AppPallate.darkPink,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -128,23 +134,22 @@ class GridWidget extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 8, top: 8),
             child: Text(
-              post[index].title.toString(),////////////////////////////
+              post[index].title.toString(), ////////////////////////////
               style: Theme.of(context).textTheme.labelMedium,
             ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 8),
-            child:  Text(
-                  post[index].category.toString(),////////////////////////////
-
+            child: Text(
+              post[index].category.toString(), ////////////////////////////
             ),
           ),
           Row(
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 8),
-                child: Text(post[index].price.toString()
-                                ,////////////////////////////
+                child: Text(
+                  post[index].price.toString(), ////////////////////////////
 
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
@@ -152,7 +157,9 @@ class GridWidget extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(left: 8),
                 child: Text(
-                              discountedPrice(post[index].price,post[index].discountPercentage).toString()  ,////////////////////////////
+                  discountedPrice(
+                          post[index].price, post[index].discountPercentage)
+                      .toString(), ////////////////////////////
 
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
@@ -162,7 +169,7 @@ class GridWidget extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 8),
             child: Text(
-             post[index].discountPercentage.toString() ,
+              post[index].discountPercentage.toString(),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),

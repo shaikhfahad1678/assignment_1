@@ -9,21 +9,16 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocConsumer<HomeBloc, HomeState>(
-      listener: (context, state) {
-      
-      },
-      builder: (context, state) {
-        return const SafeArea(
-        child:  Scaffold(
-          
-          appBar: PreferredSize(preferredSize: Size.fromHeight(75), child: HomeAppbar()),
-          body: HomeList(),
-        ),
-      );
-      }
-    );}}
-    
-      
-    
-  
+    return BlocConsumer<HomeBloc, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return const SafeArea(
+            child: Scaffold(
+              appBar: PreferredSize(
+                  preferredSize: Size.fromHeight(75), child: HomeAppbar()),
+              body: HomeList(),
+            ),
+          );
+        });
+  }
+}

@@ -13,16 +13,15 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     // on<DecreementEvent>(decreementEvent);
   }
 
-  FutureOr<void> calculateTotalPriceEvent(CalculateTotalPriceEvent event, Emitter<CartState> emit) {
-    
-  }
+  FutureOr<void> calculateTotalPriceEvent(
+      CalculateTotalPriceEvent event, Emitter<CartState> emit) {}
 
-  FutureOr<void> increementEvent(IncreementEvent event, Emitter<CartState> emit) {
+  FutureOr<void> increementEvent(
+      IncreementEvent event, Emitter<CartState> emit) {
     final currentState = state as IcreementState;
-      emit(IcreementState(currentState.value + 1, value: 0));
+    emit(IcreementState(currentState.value + 1, value: 0));
   }
 
-
-  FutureOr<void> decreementEvent(DecreementEvent event, Emitter<CartState> emit) {
-  }
+  FutureOr<void> decreementEvent(
+      DecreementEvent event, Emitter<CartState> emit) {}
 }

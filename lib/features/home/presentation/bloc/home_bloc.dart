@@ -9,12 +9,11 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<NavigateToCartEvent>(navigateToCartEvent);
-    
   }
 }
- 
-  FutureOr<void> navigateToCartEvent(NavigateToCartEvent event, Emitter<HomeState> emit) {
+
+FutureOr<void> navigateToCartEvent(
+    NavigateToCartEvent event, Emitter<HomeState> emit) {
   print('navigate');
   emit(HomenavigatCartActionState());
-  }
-
+}

@@ -8,8 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   runApp(MultiBlocProvider(
     providers: [
-       BlocProvider(create: (_) => HomeBloc()),
-        
+      BlocProvider(create: (_) => HomeBloc()),
     ],
     child: const MyApp(),
   ));
@@ -23,6 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme:AppTheme.lightThemeMode ,
+      theme: AppTheme.lightThemeMode,
       home: const Home(),
-    );}}
+    );
+  }
+}

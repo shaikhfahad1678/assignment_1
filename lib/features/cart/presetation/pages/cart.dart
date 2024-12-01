@@ -10,16 +10,13 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(75), child: CartAppbar()),
-      body: CartList(),
-      bottomSheet: 
-      
-      BlocProvider(
-        create: (context) => CounterCubit(),
-        child: CartBottomsheet(),
-      )
-    );
+    return Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(75), child: CartAppbar()),
+        body: CartList(),
+        bottomSheet: BlocProvider(
+          create: (context) => CounterCubit(),
+          child: CartBottomsheet(),
+        ));
   }
 }

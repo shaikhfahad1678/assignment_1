@@ -1,17 +1,13 @@
-
 import 'dart:convert';
-////////////////////////////////////////////////////////////////////////////
-// List<Post> postFromJson(String str) =>
-//     List<Post>.from(json.decode(str).map((x) => Post.fromJson(x)));
-  List<Post> postFromJson(String str) {
-  final jsonData = json.decode(str); 
-  return (jsonData['products'] as List) 
-      .map((item) => Post.fromJson(item)) 
-      .toList(); 
-  }
-////////////////////////////////////////////////////////////////////////////
 
-
+////////////////////////////////////////////////////////////////////////////
+List<Post> postFromJson(String str) {
+  final jsonData = json.decode(str);
+  return (jsonData['products'] as List)
+      .map((item) => Post.fromJson(item))
+      .toList();
+}
+////////////////////////////////////////////////////////////////////////////
 
 class Post {
   int? id;

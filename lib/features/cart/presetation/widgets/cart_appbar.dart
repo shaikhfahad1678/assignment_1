@@ -7,7 +7,6 @@ class CartAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       scrolledUnderElevation: 0,
-      
       title: Container(
           margin: const EdgeInsets.only(top: 22),
           child: Text(

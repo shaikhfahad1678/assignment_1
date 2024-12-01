@@ -9,22 +9,27 @@ class CounterCubit extends Cubit<int> {
 
   // Decrement the counter
   void decrement() => emit(state - 1);
-   
-   double index1 =0;
 
-  void indexValue(double index){
-     index=index1;
-   }
-  double calculateTotal(var index, ) {
+  double index1 = 0;
+
+  void indexValue(double index) {
+    index = index1;
+  }
+
+  double calculateTotal(
+    var index,
+  ) {
     return cartData.fold(
         0,
         (sum, item) =>
             sum +
-            (discountedPrice(cartData[index].price,cartData[index].discountPercentage*state))); //* item.quantity
+            (discountedPrice(cartData[index].price,
+                cartData[index].discountPercentage * state))); //* item.quantity
   }
+
   discountedPrice(double mrp, double discountPercent) {
-      double result = (discountPercent / 100) * mrp;
-      double finalResult = mrp - result;
-      return double.parse(finalResult.toStringAsFixed(2));
-    }
+    double result = (discountPercent / 100) * mrp;
+    double finalResult = mrp - result;
+    return double.parse(finalResult.toStringAsFixed(2));
+  }
 }
