@@ -54,7 +54,7 @@ class _HomeListState extends State<HomeList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: LayoutBuilder(
-        builder: (context, constraints) =>  GridView.builder(
+        builder: (context, constraints) => GridView.builder(
           itemCount: post.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, childAspectRatio: 2 / 3),
@@ -77,14 +77,12 @@ class GridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   double discountedPrice(double? mrp, double? discountPercent) {
-  if (mrp == null || discountPercent == null) return 0.0;
-  double result = (discountPercent / 100) * mrp;
-  double finalResult = mrp - result;
-  return double.parse(finalResult.toStringAsFixed(2));
-}
-
-
+    double discountedPrice(double? mrp, double? discountPercent) {
+      if (mrp == null || discountPercent == null) return 0.0;
+      double result = (discountPercent / 100) * mrp;
+      double finalResult = mrp - result;
+      return double.parse(finalResult.toStringAsFixed(2));
+    }
 
     final screenWidth = MediaQuery.of(context).size.width;
 
@@ -141,14 +139,18 @@ class GridWidget extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 8, top: 8),
             child: Text(
-              post[index].title.toString(), ////////////////////////////
+              post[index].title.toString(),
               style: Theme.of(context).textTheme.labelMedium,
+              maxLines: 1, // Limits the text to 1 line
+              overflow: TextOverflow
+                  .ellipsis, // Adds "..." at the end if text overflows
             ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 8),
             child: Text(
               post[index].category.toString(), ////////////////////////////
+              style: TextStyle(fontSize: 15, color: Colors.black),
             ),
           ),
           Row(
