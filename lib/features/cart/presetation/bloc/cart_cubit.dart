@@ -24,12 +24,12 @@ class CounterCubit extends Cubit<int> {
         (sum, item) =>
             sum +
             (discountedPrice(cartData[index].price,
-                cartData[index].discountPercentage * state))); //* item.quantity
+                cartData[index].discountPercentage))); //* item.quantity
   }
 
-  discountedPrice(double mrp, double discountPercent) {
-    double result = (discountPercent / 100) * mrp;
-    double finalResult = mrp - result;
-    return double.parse(finalResult.toStringAsFixed(2));
+  discountedPrice(num mrp, num discountPercent) {
+    num result = (discountPercent / 100) * mrp;
+    num finalResult = mrp - result;
+    return num.parse(finalResult.toStringAsFixed(2));
   }
 }

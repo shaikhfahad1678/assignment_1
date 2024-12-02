@@ -12,12 +12,10 @@ class Home extends StatelessWidget {
     return BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return const SafeArea(
-            child: Scaffold(
-              appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(75), child: HomeAppbar()),
-              body: HomeList(),
-            ),
+          return Scaffold(
+            appBar: PreferredSize(
+                preferredSize: Size.fromHeight(75), child: HomeAppbar()),
+            body: HomeList(),
           );
         });
   }
