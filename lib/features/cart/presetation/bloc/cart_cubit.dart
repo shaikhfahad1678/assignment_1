@@ -8,7 +8,10 @@ class CounterCubit extends Cubit<int> {
   void increment() => emit(state + 1);
 
   // Decrement the counter
-  void decrement() => emit(state - 1);
+   void decrement() {
+    if (state > 1) {
+      emit(state - 1);
+    }}
 
   num index1 = 0;
 
