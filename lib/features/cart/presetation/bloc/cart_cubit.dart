@@ -2,7 +2,7 @@ import 'package:assignment_1/features/cart/data/cart_data.dart';
 import 'package:bloc/bloc.dart';
 
 class CounterCubit extends Cubit<int> {
-  CounterCubit() : super(0); // Initial state is 0
+  CounterCubit() : super(1); // Initial state is 0
 
   // Increment the counter
   void increment() => emit(state + 1);
