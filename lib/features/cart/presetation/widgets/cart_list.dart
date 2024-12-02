@@ -41,9 +41,9 @@ class _ListWidgetState extends State<ListWidget> {
     return BlocBuilder<CounterCubit, int>(
       builder: (context, state) {
         var discountedPrice = CounterCubit().discountedPrice;
-        var amountPrice = CounterCubit().calculateTotal(widget.index);
+        num amountPrice = CounterCubit().calculateTotal(widget.index);
         CounterCubit().index1 = amountPrice;
-        CounterCubit().indexValue(widget.index.toDouble());
+        CounterCubit().indexValue(widget.index.toInt());
 
         return Container(
           margin: const EdgeInsets.only(bottom: 8),

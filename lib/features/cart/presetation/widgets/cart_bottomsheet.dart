@@ -35,7 +35,7 @@ class CartBottomsheet extends StatelessWidget {
                         margin: const EdgeInsets.only(left: 10),
                         child: Text(
                             CounterCubit()
-                                .calculateTotal(CounterCubit().index1)
+                                .calculateTotal(CounterCubit().index1.toInt())
                                 .toString(), ///////////////////////////////////////////////////////////////////
                             style: GoogleFonts.lato(
                                 fontWeight: FontWeight.bold, fontSize: 20))),

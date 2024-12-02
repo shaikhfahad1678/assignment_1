@@ -10,14 +10,14 @@ class CounterCubit extends Cubit<int> {
   // Decrement the counter
   void decrement() => emit(state - 1);
 
-  double index1 = 0;
+  num index1 = 0;
 
-  void indexValue(double index) {
+  void indexValue(num index) {
     index = index1;
   }
 
   double calculateTotal(
-    var index,
+    int index,
   ) {
     return cartData.fold(
         0,
