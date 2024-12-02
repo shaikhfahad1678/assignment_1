@@ -1,6 +1,5 @@
 import 'package:assignment_1/core/configs/app_pallate.dart';
 import 'package:assignment_1/features/cart/data/cart_data.dart';
-import 'package:assignment_1/features/cart/presetation/bloc/cart_bloc.dart';
 import 'package:assignment_1/features/cart/presetation/bloc/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

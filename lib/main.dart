@@ -1,5 +1,4 @@
 import 'package:assignment_1/core/configs/theme.dart';
-import 'package:assignment_1/features/cart/presetation/bloc/cart_bloc.dart';
 import 'package:assignment_1/features/home/presentation/bloc/home_bloc.dart';
 import 'package:assignment_1/features/home/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      
       theme: AppTheme.lightThemeMode,
       home: const Home(),
     );

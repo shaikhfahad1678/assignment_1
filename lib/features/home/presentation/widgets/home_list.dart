@@ -33,10 +33,12 @@ class _HomeListState extends State<HomeList> {
         setState(() {
           post = fetchedPosts; // Assign fetched posts
           isLoaded = true;
+          print('not null');
         });
       } else {
         setState(() {
           isLoaded = false;
+          print(' null');
         });
       }
     } catch (e) {
@@ -51,16 +53,18 @@ class _HomeListState extends State<HomeList> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: GridView.builder(
-        itemCount: post.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: 2 / 3),
-        itemBuilder: (context, index) {
-          return GridWidget(
-            index: index,
-            post: post,
-          );
-        },
+      child: LayoutBuilder(
+        builder: (context, constraints) =>  GridView.builder(
+          itemCount: post.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 2 / 3),
+          itemBuilder: (context, index) {
+            return GridWidget(
+              index: index,
+              post: post,
+            );
+          },
+        ),
       ),
     );
   }
@@ -73,11 +77,14 @@ class GridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    discountedPrice(double mrp, double discountPercent) {
-      double result = (discountPercent / 100) * mrp;
-      double finalResult = mrp - result;
-      return double.parse(finalResult.toStringAsFixed(2));
-    }
+   double discountedPrice(double? mrp, double? discountPercent) {
+  if (mrp == null || discountPercent == null) return 0.0;
+  double result = (discountPercent / 100) * mrp;
+  double finalResult = mrp - result;
+  return double.parse(finalResult.toStringAsFixed(2));
+}
+
+
 
     final screenWidth = MediaQuery.of(context).size.width;
 
