@@ -22,7 +22,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightThemeMode,
-      home: const Home(),
+      home: BlocProvider(
+        create: (context) => HomeBloc(),
+        child: const Home(),
+      ),
     );
   }
 }
